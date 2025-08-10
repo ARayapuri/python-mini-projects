@@ -19,16 +19,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest
 
       - name: Run tests
-        run: |
-          # Replace with your test command, e.g., pytest or unittest
-          pytest
+        run: pytest
 
       - name: Prepare artifact
         run: |
           mkdir staging
-          # Example: copy all Python files or build output if any
           cp -r ./*.py staging/
 
       - name: Upload artifact
