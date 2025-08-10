@@ -22,12 +22,12 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: pytest
+        run: pytest tests/
 
       - name: Prepare artifact
         run: |
           mkdir staging
-          cp -r ./*.py staging/
+          cp -r *.py tests staging/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4.6.2
